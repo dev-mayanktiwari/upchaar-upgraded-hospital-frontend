@@ -1,18 +1,54 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function InventoryManagement() {
-  const [inventory, setInventory] = useState([
-    { id: 1, name: "Surgical Masks", quantity: 1000, unit: "pcs" },
-    { id: 2, name: "Disposable Gloves", quantity: 5000, unit: "pairs" },
-    { id: 3, name: "Syringes", quantity: 2000, unit: "pcs" },
-  ]);
-
+  const [inventory, setInventory] = useState([]);
   const [newItem, setNewItem] = useState({ name: "", quantity: "", unit: "" });
 
-  const handleAddItem = (e) => {
-    e.preventDefault();
-    setInventory([...inventory, { id: Date.now(), ...newItem }]);
-    setNewItem({ name: "", quantity: "", unit: "" });
+  // Fetch the inventory when the component loads or when a new item is added
+  useEffect(() => {
+    const fetchInventory = async () => {
+      try {
+        const { token } = JSON.parse(localStorage.getItem("currentUser"));
+        const response = await axios.get(
+          "http://localhost:3000/api/v1/hospital/view-medicine",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setInventory(response.data);
+      } catch (err) {
+        console.log("Error fetching inventory", err);
+      }
+    };
+    fetchInventory();
+  }, [setInventory]); // [] ensures it only runs once when the component mounts
+
+  const handleAddItem = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    try {
+      const { token } = JSON.parse(localStorage.getItem("currentUser"));
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/hospital/add-medicine",
+        {
+          name: newItem.name,
+          quantity: newItem.quantity,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Item added successfully");
+      // Update the inventory with the new item
+      setInventory([...inventory, response.data]);
+      setNewItem({ name: "", quantity: "", unit: "" }); // Clear the form after submission
+    } catch (err) {
+      console.log("Error adding item", err);
+    }
   };
 
   return (
