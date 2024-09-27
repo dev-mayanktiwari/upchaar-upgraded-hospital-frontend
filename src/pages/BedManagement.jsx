@@ -85,7 +85,7 @@ function BedManagement() {
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Total Beds
+            Total Rooms
           </label>
           <input
             type="text"
@@ -98,7 +98,7 @@ function BedManagement() {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Available Beds
+            Available Rooms
           </label>
           <input
             type="text"
@@ -115,21 +115,21 @@ function BedManagement() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-green-600 mb-8">Bed Management</h2>
+      <h2 className="text-3xl font-bold text-green-600 mb-8">Room Management</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
-        <BedTypeInput label="ICU" />
-        <BedTypeInput label="General" />
-        <BedTypeInput label="Premium" />
+        <BedTypeInput label="Standard" />
+        <BedTypeInput label="Deluxe" />
+        <BedTypeInput label="Suite" />
 
         <div className="bg-gray-100 p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-semibold text-green-600 mb-4">Summary</h3>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-gray-700 font-medium">Total Beds:</p>
+              <p className="text-gray-700 font-medium">Total Rooms:</p>
               <p className="text-2xl font-bold text-green-600">{totalBeds}</p>
             </div>
             <div>
-              <p className="text-gray-700 font-medium">Total Available Beds:</p>
+              <p className="text-gray-700 font-medium">Available Rooms:</p>
               <p className="text-2xl font-bold text-green-600">
                 {totalAvailable}
               </p>
@@ -147,7 +147,7 @@ function BedManagement() {
           disabled={isLoading}
           className="w-full bg-green-500 text-white py-3 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 disabled:opacity-50 transition duration-300 ease-in-out transform hover:-translate-y-1"
         >
-          {isLoading ? "Updating..." : "Update Bed Details"}
+          {isLoading ? "Updating..." : "Update Room Details"}
         </button>
       </form>
     </div>

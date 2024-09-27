@@ -142,7 +142,7 @@ function SignUp() {
   return (
     <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">
-        Hospital Registration
+        Hotel Registration
       </h2>
 
       {error && (
@@ -152,19 +152,6 @@ function SignUp() {
       )}
 
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            I am a:
-            <select
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              className="w-full mt-1 p-2 border rounded-md"
-            >
-              <option value="hospital">Hospital</option>
-            </select>
-          </label>
-        </div>
-
         {role === "patient" ? (
           <>
             <div className="mb-4">
@@ -237,7 +224,7 @@ function SignUp() {
           <>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">
-                Hospital Name:
+                Hotel Name:
                 <input
                   type="text"
                   name="name"

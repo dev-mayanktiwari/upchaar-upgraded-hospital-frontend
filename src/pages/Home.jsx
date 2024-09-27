@@ -50,10 +50,7 @@ function Home() {
           >
             Simplifying travel bookings and managing itineraries with ease.
             <br />
-            Enjoy a smooth travel experience by easily coordinating hotel stays,
-            <br />
-            exploring tourist destinations, and handling your trip plans all in
-            one place.
+            Enjoy a smooth travel experience by easily coordinating hotel stays.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"

@@ -23,12 +23,12 @@ function Header() {
             </li>
             <li>
               <Link to="/patient-dashboard" className="hover:text-blue-200">
-                Patient
+                Traveller
               </Link>
             </li>
             <li>
               <Link to="/hospital-dashboard" className="hover:text-blue-200">
-                Hospital
+                Hotels
               </Link>
             </li>
           </ul>
