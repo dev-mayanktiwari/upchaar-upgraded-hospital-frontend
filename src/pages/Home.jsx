@@ -1,12 +1,8 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const heroImages = [
-  "/image1.avif",
-  "/image2.jpg",
-  "/image3.jpg",
-];
+const heroImages = ["/travel1.jpeg", "/travel2.jpg", "/travel3.avif"];
 
 function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -44,7 +40,7 @@ function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            Welcome to HealthCare Hub
+            Welcome to TourEase!!
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl mb-8"
@@ -52,7 +48,12 @@ function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Your one-stop solution for efficient healthcare management
+            Simplifying travel bookings and managing itineraries with ease.
+            <br />
+            Enjoy a smooth travel experience by easily coordinating hotel stays,
+            <br />
+            exploring tourist destinations, and handling your trip plans all in
+            one place.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
@@ -70,7 +71,7 @@ function Home() {
               to="/view-hospitals"
               className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
             >
-              View Hospitals
+              View Hotels
             </Link>
           </motion.div>
         </div>
@@ -84,27 +85,27 @@ function Home() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <FeatureCard
-              title="For Patients"
+              title="For Travellers"
               color="blue"
               features={[
-                "Easy appointment booking",
-                "Access to medical records",
-                "Real-time appointment status updates",
-                "Medication management and reminders",
-                "Telemedicine consultations",
-                "Health tracking and analytics",
+                "Easy hotel and attraction booking",
+                "Access to travel itineraries",
+                "Real-time booking status updates",
+                "Trip planning and reminders",
+                "Virtual tour consultations",
+                "Travel insights and recommendations",
               ]}
             />
             <FeatureCard
-              title="For Hospitals"
+              title="For Hotels"
               color="green"
               features={[
-                "Efficient department management",
-                "Streamlined appointment handling",
-                "Advanced inventory control",
-                "Real-time bed management",
-                "Staff scheduling and management",
-                "Analytics and reporting dashboard",
+                "Efficient room and service management",
+                "Streamlined guest check-in and booking",
+                "Advanced inventory and amenity control",
+                "Real-time room availability management",
+                "Staff scheduling and task management",
+                "Analytics and reporting dashboard for occupancy and performance",
               ]}
             />
           </div>
@@ -119,16 +120,16 @@ function Home() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <TestimonialCard
-              quote="HealthCare Hub has revolutionized how I manage my health. It's so convenient!"
-              author="John Doe, Patient"
+              quote="TourEase has transformed my travel experience. Booking hotels and planning trips has never been easier!"
+              author="Jane Smith, Traveler"
             />
             <TestimonialCard
-              quote="As a hospital administrator, this platform has significantly improved our efficiency."
-              author="Dr. Jane Smith, Hospital Director"
+              quote="As a hotel manager, this platform has greatly enhanced our operations and guest satisfaction."
+              author="Mr. Alex Johnson, Hotel Manager"
             />
             <TestimonialCard
-              quote="The medication reminders have been a lifesaver. I never miss a dose now."
-              author="Mike Johnson, Patient"
+              quote="The travel reminders have been a game-changer. I never miss a booking or activity now."
+              author="Emily Davis, Traveler"
             />
           </div>
         </div>
@@ -141,8 +142,7 @@ function Home() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8">
-            Join HealthCare Hub today and experience the future of healthcare
-            management.
+            Join TourEase today and experience the future of travel management.
           </p>
           <Link
             to="/signup"
