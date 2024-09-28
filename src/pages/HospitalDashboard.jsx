@@ -23,7 +23,7 @@ function HospitalDashboard() {
           className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
         >
           <h3 className="text-xl font-bold text-green-600 mb-2">
-            Manage Appointments
+            Manage Bookings
           </h3>
           <p className="text-gray-600">View and handle travellers appointments</p>
         </Link>
